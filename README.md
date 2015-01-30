@@ -36,3 +36,7 @@ Install vagrant plugin cachier to cache repository packages
 Before running in production the hosts file will need to be copied to a file named production and then modified to fit your server. Afterwards you can run the production provisioning script. The production file is ignored by git for safety.
 
     bin/provision_production
+    
+####Ansible best practices
+
+http://docs.ansible.com/playbooks_best_practices.html
