@@ -1,0 +1,4 @@
+- name: share a portion of the host file across all servers
+  lineinfile: dest=/etc/hosts regexp='.*{{ item }}$' line="{{ hostvars[item].private_ip }} {{item}}" state=present
+  with_items: groups['all']
+  sudo: true

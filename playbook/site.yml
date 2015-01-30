@@ -1,0 +1,7 @@
+- name: all
+  hosts: all
+  gather_facts: false
+  sudo: true
+  roles:
+    - shared-host-file
+    - oracle-java7
