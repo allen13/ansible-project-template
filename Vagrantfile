@@ -1,10 +1,11 @@
 
 Vagrant.configure("2") do |config|
   enable_package_cache(config)
-
+  config.vm.synced_folder '.', '/vagrant', disabled: true
+  config.ssh.password = 'vagrant'
   #all params are optional
   create_vm(config) #node-01
-  create_vm(config, id: 2, memory: 1024, cpus: 1, box: "ubuntu/trusty64")
+  create_vm(config, id: 2, memory: 1024, cpus: 1, box: "chef/centos-7.0")
   create_vm(config, name: "node", id: 3)
 end
 
@@ -13,7 +14,7 @@ def create_vm(config, options = {})
   id = options.fetch(:id, 1)
   vm_name = "%s-%02d" % [name, id]
 
-  box = options.fetch(:box, "ubuntu/trusty64")
+  box = options.fetch(:box, "chef/centos-7.0")
   memory = options.fetch(:memory, 1024)
   cpus = options.fetch(:cpus, 1)
 
